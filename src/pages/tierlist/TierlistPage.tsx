@@ -72,7 +72,7 @@ function TierlistPage() {
           return (
             <div key={tier} className="flex flex-row gap-2 mb-2">
               <div
-                className="px-10 py-5 text-center rounded-l"
+                className="flex justify-center items-center md:px-10 md:py-5 w-[50px] md:w-[200px] text-center rounded-l"
                 style={{
                   backgroundColor: `hsl(${
                     parseFloat(tier.toFixed(1)) * 120
@@ -80,10 +80,9 @@ function TierlistPage() {
                   borderColor: `hsl(${
                     parseFloat(tier.toFixed(1)) * 120
                   }, 70%, 40%)`,
-                  width: "200px",
                 }}
               >
-                <h2 className="text-2xl font-bold w-[100px]">
+                <h2 className="text-xl md:text-2xl font-bold w-[100px]">
                   {tier.toFixed(1)}
                 </h2>
               </div>
@@ -92,7 +91,7 @@ function TierlistPage() {
                   <Link
                     to={`/players/${player.username}`}
                     key={player.id || index}
-                    className="badge badge-soft badge-lg"
+                    className="badge badge-soft badge-lg text-md md:text-lg"
                   >
                     {player.username || `Player ${index + 1}`}
                   </Link>

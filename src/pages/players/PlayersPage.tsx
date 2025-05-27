@@ -96,7 +96,7 @@ function PlayersPage() {
         </div>
       )}
 
-      <div className="flex flex-wrap items-center justify-center gap-2">
+      <div className="flex flex-wrap items-center justify-evenly md:justify-center gap-2">
         {filteredAndSortedPlayers.length === 0 ? (
           <div className="text-center py-8 text-xl text-gray-500">
             {searchTerm ? "No players match your search" : "No players found"}
