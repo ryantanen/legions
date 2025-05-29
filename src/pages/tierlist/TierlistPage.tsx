@@ -59,7 +59,7 @@ function TierlistPage() {
 
   return (
     <div className="w-full">
-      <h1 className="text-4xl font-bold text-center my-8">Quipeconomy List</h1>
+      <h1 className="text-4xl font-bold text-center my-8">Quipconomy List</h1>
 
       {sortedTiers.length === 0 ? (
         <div className="text-center py-8 text-xl text-gray-500">
