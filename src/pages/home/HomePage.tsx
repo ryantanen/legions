@@ -5,7 +5,7 @@ function HomePage() {
     <div className="w-full mt-4 flex items-center flex-col justify-center gap-2">
       <img src={legions}></img>
       <h1>Welcome to Legions</h1>
-      Join our discord:
+
       <a
         href="https://discord.gg/VzcyzyX9Qy"
         className="btn btn-primary mt-2"
