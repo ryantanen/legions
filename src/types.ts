@@ -4,5 +4,6 @@ export type Player = {
   discordId?: string;
   rating: number;
   rank?: string;
+  notes?: string;
   updated_at?: string;
 };

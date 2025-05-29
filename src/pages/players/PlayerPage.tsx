@@ -51,6 +51,10 @@ function PlayerPage() {
 
         </div> */}
         </div>
+        <div className="p-4 text-center">
+          <h2 className="text-xl font-semibold">Player Notes</h2>
+          <p className="text-primary">{player.notes || "No notes available"}</p>
+        </div>
         <div className="flex flex-col items-center justify-center gap-4">
           <h2 className="text-xl font-semibold">Player Stats</h2>
           <div className="badge badge-xl badge-soft badge-primary">

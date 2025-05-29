@@ -15,6 +15,7 @@ import type { Player } from "../../types";
 interface PlayerFormData {
   username: string;
   rating: number;
+  notes?: string;
 }
 
 function AdminDashboard() {
@@ -73,7 +74,7 @@ function AdminDashboard() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["adminPlayers"] });
       setIsAddModalOpen(false);
-      setFormData({ username: "", rating: 0 });
+      setFormData({ username: "", rating: 0, notes: "" });
     },
     onError: (error) => {
       console.error("Error adding player:", error);
@@ -132,7 +133,11 @@ function AdminDashboard() {
   // Event handlers
   const handleEdit = (player: Player) => {
     setSelectedPlayer(player);
-    setFormData({ username: player.username, rating: player.rating || 0 });
+    setFormData({
+      username: player.username,
+      rating: player.rating || 0,
+      notes: player.notes || "",
+    });
     setIsEditModalOpen(true);
   };
 
@@ -157,6 +162,7 @@ function AdminDashboard() {
         ...selectedPlayer,
         username: formData.username,
         rating: formData.rating,
+        notes: formData.notes,
       });
     }
   };
@@ -281,7 +287,7 @@ function AdminDashboard() {
                         {(Math.floor(player.rating * 10) / 10.0).toFixed(1)}
                       </div>
                     </td>
-                    <td>{"No notes"}</td>
+                    <td>{player.notes || "No notes"}</td>
                     <td>
                       <button
                         className="btn btn-secondary btn-soft"
@@ -367,6 +373,18 @@ function AdminDashboard() {
                     })
                   }
                   required
+                />
+              </div>
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text">Notes</span>
+                </label>
+                <textarea
+                  className="textarea textarea-bordered w-full"
+                  value={formData.notes}
+                  onChange={(e) =>
+                    setFormData({ ...formData, notes: e.target.value })
+                  }
                 />
               </div>
             </div>

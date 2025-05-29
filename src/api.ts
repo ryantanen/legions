@@ -1,3 +1,4 @@
+import { noop } from "@tanstack/react-query";
 import { supabase } from "./main.tsx";
 import type { Player } from "./types.ts";
 
@@ -35,6 +36,7 @@ export async function adminUpdatePlayer(
     .update({
       username: player.username,
       rating: player.rating,
+      notes: player.notes,
       updated_at: new Date().toISOString(),
     })
     .eq("id", player.id)
