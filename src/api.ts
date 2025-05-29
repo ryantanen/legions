@@ -1,4 +1,3 @@
-import { noop } from "@tanstack/react-query";
 import { supabase } from "./main.tsx";
 import type { Player } from "./types.ts";
 
