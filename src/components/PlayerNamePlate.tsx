@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import type { Player } from "../types";
-import { getRatingStyle } from "../util";
+import { getRatingStyle, getQuipRatingRounded } from "../util";
 
 function PlayerNamePlate({
   player,
@@ -24,7 +24,7 @@ function PlayerNamePlate({
             ...ratingStyle,
           }}
         >
-          {(Math.floor(player.rating * 10) / 10.0).toFixed(1)}
+          {getQuipRatingRounded(player.rating) || "0.0"}
         </div>
       )}
     </Link>

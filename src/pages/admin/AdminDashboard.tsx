@@ -9,7 +9,7 @@ import {
   replaceAdminPlayersWithPlayers,
   replacePlayersWithAdminPlayers,
 } from "../../api";
-import { getRatingStyle } from "../../util";
+import { getQuipRatingRounded, getRatingStyle } from "../../util";
 import type { Player } from "../../types";
 
 interface PlayerFormData {
@@ -284,7 +284,7 @@ function AdminDashboard() {
                             : "inherit",
                         }}
                       >
-                        {(Math.floor(player.rating * 10) / 10.0).toFixed(1)}
+                        {getQuipRatingRounded(player.rating) || "0.00"}
                       </div>
                     </td>
                     <td>{player.notes || "No notes"}</td>

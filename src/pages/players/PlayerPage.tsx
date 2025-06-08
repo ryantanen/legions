@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from "react-router";
 import type { Player } from "../../types";
 import { useQuery } from "@tanstack/react-query";
 import { getPlayerByName } from "../../api";
-import { getRatingStyle } from "../../util";
+import { getQuipRatingRounded, getRatingStyle } from "../../util";
 
 function PlayerPage() {
   const playerUsername = useParams<{ playerUsername: string }>().playerUsername;
@@ -41,7 +41,7 @@ function PlayerPage() {
                 borderColor: getRatingStyle(player.rating).borderColor,
               }}
             >
-              {(Math.floor(player.rating * 10) / 10.0).toFixed(1)}
+              {getQuipRatingRounded(player.rating) || "0.00"}
             </div>
           </div>
           {/* <div className="p-4">

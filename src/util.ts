@@ -106,3 +106,8 @@ export const getRatingStyle = (rating: number) => {
     color: style.border,
   };
 };
+
+export const getQuipRatingRounded = (rating: number): string => {
+  const roundedRating = Math.floor(rating * 100) / 100;
+  return roundedRating.toFixed(2);
+};
